@@ -21,12 +21,12 @@ echo "# Copia los archivos de la aplicación" >> tempdir/Dockerfile
 echo "COPY  ./static /home/myapp/static/" >> tempdir/Dockerfile
 echo "COPY  ./templates /home/myapp/templates/" >> tempdir/Dockerfile
 echo "COPY  sample_app.js /home/myapp/" >> tempdir/Dockerfile
-echo "# Expone el puerto 8080 para el servidor web" >> tempdir/Dockerfile
-echo "EXPOSE 8080" >> tempdir/Dockerfile
+echo "# Expone el puerto 5050 para el servidor web" >> tempdir/Dockerfile
+echo "EXPOSE 5050" >> tempdir/Dockerfile
 echo "# Comando para iniciar la aplicación" >> tempdir/Dockerfile
 echo "CMD [\"node\", \"sample_app.js\"]" >> tempdir/Dockerfile
 
 cd tempdir
 docker build -t sampleapp .
-docker run -t -d -p 8080:8080 --name samplerunning sampleapp
+docker run -t -d -p 5050:5050 --name samplerunning sampleapp
 docker ps -a 
